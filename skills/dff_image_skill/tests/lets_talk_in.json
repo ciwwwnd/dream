@@ -1,6 +1,6 @@
 {
     "human_utter_index_batch": [
-        71
+        76
     ],
     "dialog_batch": [
         {
@@ -9,14 +9,14 @@
                     "text": "",
                     "annotations": {
                         "spelling_preprocessing": "",
-                        "badlisted_words": {
-                            "bad_words": false
-                        },
                         "sentseg": {
                             "punct_sent": "",
                             "segments": [
                                 ""
                             ]
+                        },
+                        "badlisted_words": {
+                            "bad_words": false
                         },
                         "intent_catcher": {
                             "cant_do": {
@@ -109,7 +109,7 @@
                             }
                         },
                         "image_captioning": {
-                            "caption": "a dog and a cat sitting in the grass",
+                            "caption": "a woman sitting at a table with a laptop",
                             "image_id": "42"
                         }
                     },
@@ -135,23 +135,23 @@
                                     "actor_state": {},
                                     "id": "33bd876f-c168-43bf-913d-c8e3da30e5a8",
                                     "labels": {
-                                        "13": [
+                                        "18": [
                                             "caption_response",
                                             "general_node"
                                         ],
-                                        "14": [
+                                        "19": [
                                             "caption_response",
-                                            "animals_node"
+                                            "people_node"
                                         ]
                                     },
                                     "misc": {},
                                     "requests": {
-                                        "13": "",
-                                        "14": ""
+                                        "18": "",
+                                        "19": ""
                                     },
                                     "responses": {
-                                        "13": "Cool! Why did you send me {}?",
-                                        "14": "I would like to have an animal like that. I wonder if it eats a lot."
+                                        "18": "Cool! Why did you send me a wooden fence with a river in the background?",
+                                        "19": "Do you enjoy sitting with other people?"
                                     },
                                     "validation": false
                                 },
@@ -216,9 +216,29 @@
                                     "70": [
                                         "caption_response",
                                         "animals_node"
+                                    ],
+                                    "71": [
+                                        "caption_response",
+                                        "people_node"
+                                    ],
+                                    "72": [
+                                        "caption_response",
+                                        "people_node"
+                                    ],
+                                    "73": [
+                                        "caption_response",
+                                        "food_node"
+                                    ],
+                                    "74": [
+                                        "caption_response",
+                                        "general_node"
+                                    ],
+                                    "75": [
+                                        "caption_response",
+                                        "people_node"
                                     ]
                                 },
-                                "previous_human_utter_index": 70,
+                                "previous_human_utter_index": 75,
                                 "shared_memory": {}
                             },
                             "dff_shared_state": {
@@ -334,7 +354,7 @@
                             }
                         },
                         "image_captioning": {
-                            "caption": "a group of women dancing at a party",
+                            "caption": "a rooster standing on a table in front of a group of doctors and scientists",
                             "image_id": "42"
                         }
                     },
@@ -360,23 +380,23 @@
                                     "actor_state": {},
                                     "id": "33bd876f-c168-43bf-913d-c8e3da30e5a8",
                                     "labels": {
-                                        "13": [
+                                        "18": [
                                             "caption_response",
                                             "general_node"
                                         ],
-                                        "14": [
+                                        "19": [
                                             "caption_response",
-                                            "animals_node"
+                                            "people_node"
                                         ]
                                     },
                                     "misc": {},
                                     "requests": {
-                                        "13": "",
-                                        "14": ""
+                                        "18": "",
+                                        "19": ""
                                     },
                                     "responses": {
-                                        "13": "Cool! Why did you send me {}?",
-                                        "14": "I would like to have an animal like that. I wonder if it eats a lot."
+                                        "18": "Cool! Why did you send me a wooden fence with a river in the background?",
+                                        "19": "Do you enjoy sitting with other people?"
                                     },
                                     "validation": false
                                 },
@@ -441,9 +461,29 @@
                                     "70": [
                                         "caption_response",
                                         "animals_node"
+                                    ],
+                                    "71": [
+                                        "caption_response",
+                                        "people_node"
+                                    ],
+                                    "72": [
+                                        "caption_response",
+                                        "people_node"
+                                    ],
+                                    "73": [
+                                        "caption_response",
+                                        "food_node"
+                                    ],
+                                    "74": [
+                                        "caption_response",
+                                        "general_node"
+                                    ],
+                                    "75": [
+                                        "caption_response",
+                                        "people_node"
                                     ]
                                 },
-                                "previous_human_utter_index": 70,
+                                "previous_human_utter_index": 75,
                                 "shared_memory": {}
                             },
                             "dff_shared_state": {
@@ -458,13 +498,12 @@
             ],
             "bot_utterances": [
                 {
-                    "text": "I would like to have an animal like that. I wonder if it eats a lot.",
+                    "text": "Do you enjoy sitting with other people?",
                     "annotations": {
                         "sentseg": {
-                            "punct_sent": "I would like to have an animal like that. I wonder if it eats a lot.",
+                            "punct_sent": "Do you enjoy sitting with other people?",
                             "segments": [
-                                "I would like to have an animal like that.",
-                                "I wonder if it eats a lot."
+                                "Do you enjoy sitting with other people?"
                             ]
                         }
                     },
@@ -485,23 +524,23 @@
                 "actor_state": {},
                 "id": "33bd876f-c168-43bf-913d-c8e3da30e5a8",
                 "labels": {
-                    "13": [
+                    "18": [
                         "caption_response",
                         "general_node"
                     ],
-                    "14": [
+                    "19": [
                         "caption_response",
-                        "animals_node"
+                        "people_node"
                     ]
                 },
                 "misc": {},
                 "requests": {
-                    "13": "",
-                    "14": ""
+                    "18": "",
+                    "19": ""
                 },
                 "responses": {
-                    "13": "Cool! Why did you send me {}?",
-                    "14": "I would like to have an animal like that. I wonder if it eats a lot."
+                    "18": "Cool! Why did you send me a wooden fence with a river in the background?",
+                    "19": "Do you enjoy sitting with other people?"
                 },
                 "validation": false
             },
@@ -566,9 +605,29 @@
                 "70": [
                     "caption_response",
                     "animals_node"
+                ],
+                "71": [
+                    "caption_response",
+                    "people_node"
+                ],
+                "72": [
+                    "caption_response",
+                    "people_node"
+                ],
+                "73": [
+                    "caption_response",
+                    "food_node"
+                ],
+                "74": [
+                    "caption_response",
+                    "general_node"
+                ],
+                "75": [
+                    "caption_response",
+                    "people_node"
                 ]
             },
-            "previous_human_utter_index": 70,
+            "previous_human_utter_index": 75,
             "shared_memory": {}
         }
     ],

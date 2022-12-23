@@ -1,4 +1,7 @@
 import os
+from io import BytesIO
+from os import getenv
+import urllib
 import torch
 from torchvision import transforms
 import numpy as np
@@ -16,9 +19,6 @@ from healthcheck import HealthCheck
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
 
-from io import BytesIO
-from os import getenv
-import urllib
 
 # Register caption task
 register_task("caption", CaptionTask)
@@ -126,24 +126,29 @@ logging.getLogger("werkzeug").setLevel("WARNING")
 @app.route("/respond", methods=["POST"])
 def respond():
     st_time = time.time()
-    img_paths = request.json.get("image_paths", [])    
+    img_paths = request.json.get("image_paths", [])   
     captions = []
-    if img_paths == '':
-        captions.append('')
-    urllib.request.urlretrieve(img_paths, 'filename')    
-    image = Image.open('filename')
-    image.thumbnail((256, 256))
-    sample = construct_sample(image)
-    sample = utils.move_to_cuda(sample) if use_cuda else sample
-    sample = utils.apply_to_sample(apply_half, sample) if use_fp16 else sample
-    with torch.no_grad():
-        caption, scores = eval_step(task, generator, models, sample)
-    captions.append(caption)
-    logger.info(f"captions: {captions}")
+    try:
+         for img_path in img_paths:
+            urllib.request.urlretrieve(img_path, 'image_path')
+            image = Image.open('image_path')
+            image.thumbnail((256, 256))
+
+            # Construct input sample & preprocess for GPU if cuda available
+            sample = construct_sample(image)
+            sample = utils.move_to_cuda(sample) if use_cuda else sample
+            sample = utils.apply_to_sample(apply_half, sample) if use_fp16 else sample
+
+            with torch.no_grad():
+                caption, scores = eval_step(task, generator, models, sample)
+
+            captions.append(caption)
+
+    except Exception as exc:
+        logger.exception(exc)
+        sentry_sdk.capture_exception(exc)
+
     total_time = time.time() - st_time
     logger.info(f"captioning exec time: {total_time:.3f}s")
-    captions = jsonify(captions[0])
-    return captions
+    return jsonify({"caption": captions})
 
-if __name__ == "__main__":
-    app.run(debug=False, host="0.0.0.0", port=8123)
