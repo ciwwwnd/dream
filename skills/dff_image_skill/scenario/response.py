@@ -33,5 +33,6 @@ def people_response(ctx: Context, actor: Actor, excluded_skills=None, *args, **k
 
 def generic_response(ctx: Context, actor: Actor, excluded_skills=None, *args, **kwargs) -> str:
     caption = int_ctx.get_last_human_utterance(ctx, actor).get("annotations", {}).get("image_captioning", {}).get("caption", {})
+    logger.debug(f'ANNOTATIONS {int_ctx.get_last_human_utterance(ctx, actor).get("annotations", {})}')
     int_ctx.set_confidence(ctx, actor, 1)
     return random.choice([f'Cool! Why did you send me {caption}?', f'It looks interesting, what did you mean by sending me {caption}?'])

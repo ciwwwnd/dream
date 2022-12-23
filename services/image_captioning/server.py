@@ -1,4 +1,5 @@
 import os
+import requests
 from io import BytesIO
 from os import getenv
 import urllib
@@ -130,8 +131,8 @@ def respond():
     captions = []
     try:
          for img_path in img_paths:
-            urllib.request.urlretrieve(img_path, 'image_path')
-            image = Image.open('image_path')
+            response = requests.get(img_path)
+            image = Image.open(BytesIO(response.content))
             image.thumbnail((256, 256))
 
             # Construct input sample & preprocess for GPU if cuda available
@@ -143,6 +144,8 @@ def respond():
                 caption, scores = eval_step(task, generator, models, sample)
 
             captions.append(caption)
+            logger.info(f'captions here {captions}')
+            # return jsonify({"caption": captions})
 
     except Exception as exc:
         logger.exception(exc)
@@ -150,5 +153,6 @@ def respond():
 
     total_time = time.time() - st_time
     logger.info(f"captioning exec time: {total_time:.3f}s")
+    # logger.info(f'results {jsonify({"caption": captions})}')
     return jsonify({"caption": captions})
 
